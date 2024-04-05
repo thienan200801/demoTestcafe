@@ -1,0 +1,34 @@
+{
+  "name": "testcafe-examples",
+  "version": "0.0.1",
+  "author": {
+    "name": "Developer Express Inc.",
+    "url": "https://www.devexpress.com/"
+  },
+  "description": "This repository contains sample test files that help you learn how to use TestCafe.",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "nanoid": "^3.1.12",
+    "testcafe": "^3.1.0"
+  },
+  "scripts": {
+    "examples": "testcafe chrome:headless examples -a \"node server/index.js\"",
+    "mock-camera-microphone-access": " testcafe --hostname localhost \"chrome:headless --use-fake-ui-for-media-stream --use-fake-device-for-media-stream\" detached-examples/mock-camera-microphone-access/mock-camera-microphone-access.js",
+    "extended-error-tracking": "testcafe --skip-js-errors chrome:headless detached-examples/extended-error-tracking/index.js",
+    "multiuser-scenario": "node detached-examples/multiuser-scenario/test",
+    "kerberos-auth": "cd detached-examples/kerberos-auth && npm start",
+    "certificate-auth": "cd detached-examples/certificate-auth && npm start",
+    "set-window-size-for-all-tests": "testcafe chrome detached-examples/set-window-size-for-all-tests/set-window-size-for-all-tests.js --config-file detached-examples/set-window-size-for-all-tests/.testcaferc.js",
+    "test": "npm run lint & npm run examples && npm run multiuser-scenario && npm run mock-camera-microphone-access && npm run extended-error-tracking && npm run set-window-size-for-all-tests",
+    "lint": "eslint examples/**/*.js detached-examples/**/*.js",
+    "lint:fix": "eslint --fix examples/**/*.js detached-examples/**/*.js"
+  },
+  "devDependencies": {
+    "delay": "^5.0.0",
+    "eslint": "^8.46.0",
+    "express": "^4.17.1",
+    "mockdate": "^2.0.5",
+    "multiparty": "^4.2.2"
+  }
+}
